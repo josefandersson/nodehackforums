@@ -97,10 +97,15 @@ Functions.getThread = function getThread(callback, threadId) {
 };
 
 
-Functions.getPost = function getPost(callback, postId) {
+Functions.getPost = function getPost(callback, postId, raw=false) {
+    let params = '';
+    if (raw === true) {
+        params = '?raw';
+    }
+
     makeRequest(
         callback,
-        _REQUEST_OPTIONS.append({ url:`${apiUrlBase}/post/${postId}` }, 1));
+        _REQUEST_OPTIONS.append({ url:`${apiUrlBase}/post/${postId}${params}` }, 1));
 };
 
 
