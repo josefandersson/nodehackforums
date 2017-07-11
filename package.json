@@ -1,0 +1,14 @@
+{
+  "name": "nodehackforums",
+  "version": "1.0.4",
+  "description": "Gateway to the HackForums API for NodeJS.",
+  "main": "nodehackforums.js",
+  "keywords": [
+    "hackforums"
+  ],
+  "author": "DrDoof",
+  "license": "ISC",
+  "dependencies": {
+    "cloudscraper": "^1.4.1"
+  }
+}
