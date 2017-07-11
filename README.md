@@ -32,7 +32,7 @@ function callback(error, valid) {
 ```
 
 ### Set API key
-Set a new API key. Makes it possible to switch "user" mid-execution. It is recommended to [test the API key](#test_api_key) before continuing with other requests after using this method.
+Set a new API key. Makes it possible to switch "user" mid-execution. It is recommended to [test the API key](#test-api-key) before continuing with other requests after using this method.
 ```
 hfapi.setApiKey(apiKey);
 ```

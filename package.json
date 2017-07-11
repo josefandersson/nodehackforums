@@ -1,7 +1,8 @@
 {
   "name": "nodehackforums",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Gateway to the HackForums API for NodeJS.",
+  "repository": "josefandersson/nodehackforums",
   "main": "nodehackforums.js",
   "keywords": [
     "hackforums"
