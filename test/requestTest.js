@@ -1,6 +1,7 @@
 /*
     Test functions that directly makes calls to the API.
     This test will do multiple requests to the server.
+    Requires "chai" to be installed. (npm i -g chai)
     Application will crash if unsuccessful.
  */
 

@@ -10,7 +10,6 @@
   "author": "DrDoof",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.0.2",
     "cloudscraper": "^1.4.1"
   }
 }
