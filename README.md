@@ -75,9 +75,9 @@ Where `forumId` is the subforum's ID. Callback get passed two arguments, `error`
 ### Get thread
 Gets info about a thread and it's posts.
 ```
-hfapi.getThread(callback, threadId);
+hfapi.getThread(callback, threadId [,raw, page]);
 ```
-Where `threadId` is the thread's ID. Callback get passed two arguments, `error` and `json`. `json` is the response body parsed to a JSON object.
+Where `threadId` is the thread's ID. If `raw` is true, thread content will not be parsed into HTML but remain as MyBB. `page` is the page of the thread to fetch posts from.  Callback get passed two arguments, `error` and `json`. `json` is the response body parsed to a JSON object.
 
 ### Get post
 Gets info about a post.
