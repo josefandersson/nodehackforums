@@ -78,18 +78,9 @@ function getRequestCount() {
 
 /**
  * Sends an empty request to the API to check if the current API key is valid.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'valid' (true if valid API key).
  */
-function testApiKey(callback) {
-    makeRequest(
-        (error, json) => {
-            let valid = false;
-            if (json && json.message !== 'INVALID_API_KEY') {
-                valid = true;
-            }
-
-            callback(error, valid);
-        }, _REQUEST_OPTIONS);
+function testApiKey() {
+    return makeRequest(_REQUEST_OPTIONS);
 }
 
 
