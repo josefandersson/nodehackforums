@@ -27,22 +27,29 @@ const _REQUEST_OPTIONS = {
 
 /**
  * Make a cloudscraper request.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Object}   options  Object passed to request. See https://www.npmjs.com/package/request#custom-http-headers
+ * @return {Promise}  Javascript promise is returned, resolved if no error, rejected if error provided. INVALID_API_KEY is possible.
  */
-function makeRequest(callback, options) {
-    cloudscraper.request(options, (error, response, body) => {
-        let jsonOut;
+function makeRequest(options) {
+    var promise = new Promise(function(resolve, reject) {
+        cloudscraper.request(options, (error, response, body) => {
+            let jsonOut;
 
-        if (!error) {
-            jsonOut = JSON.parse(body);
-            if (jsonOut.message !== 'INVALID_API_KEY') {
-                RequestCounter.add();
+            if (!error) {
+                jsonOut = JSON.parse(body);
+                if (jsonOut.message !== 'INVALID_API_KEY') {
+                    RequestCounter.add();
+                    resolve(jsonOut);
+                }else{
+                    reject('INVALID_API_KEY');
+                }
+            }else{
+                reject(error);
             }
-        }
-
-        callback(error, jsonOut);
+        });
     });
+
+    return promise;
 }
 
 
