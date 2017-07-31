@@ -96,126 +96,117 @@ function testApiKey(callback) {
 
 /**
  * Gets info about a user.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   userId   A user's ID.
  */
-function getUser(callback, userId) {
+function getUser(userId) {
     let url = `${_API_URL_BASE}/user/${userId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets an array of users info.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {String}   userIds  Users ID's seperated by comma. (or an array of user ID's)
  */
-function getUsers(callback, userIds) {
+function getUsers(userIds) {
     let userIdsString = userIds;
     if (userIds instanceof Array) {
         userIdsString = userIds.join(',');
     }
 
     let url = `${_API_URL_BASE}/users/${userIdsString}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets info about a forum category and an array of forums in that cateory.
- * @param  {Function} callback   Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   categoryId A category's ID.
  */
-function getCategory(callback, categoryId) {
+function getCategory(categoryId) {
     let url = `${_API_URL_BASE}/category/${categoryId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets info about a forum and an array of threads in that forum.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   forumId  A forum's ID.
  */
-function getForum(callback, forumId) {
+function getForum(forumId) {
     let url = `${_API_URL_BASE}/forum/${forumId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets info about a thread and it's posts, including the content of posts.
- * @param  {Function} callback    Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   threadId    A thread's ID.
  * @param  {Boolean}  raw         Whether to fetch all posts content as raw MyBB instead of parsed HTML.
  * @param  {Number}   page        Which page of the thread to fetch posts from.
  */
-function getThread(callback, threadId, raw=false, page=0) {
+function getThread(threadId, raw=false, page=0) {
     let params = `?page=${page}`;
     if (raw === true) {
         params += '&raw';
     }
 
     let url = `${_API_URL_BASE}/thread/${threadId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets info and content of a post.
- * @param  {Function} callback    Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   postId      A post's ID.
  * @param  {Boolean}  [raw=false] Whether to fetch post content as raw MyBB instead of parsed HTML.
  */
-function getPost(callback, postId, raw=false) {
+function getPost(postId, raw=false) {
     let params = '';
     if (raw === true) {
         params = '?raw';
     }
 
     let url = `${_API_URL_BASE}/post/${postId}${params}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Reads a PM. (Note: PM will be marked as read just like reading it on hackforums.)
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   pmId     A private message's ID.
  */
-function getPrivateMessage(callback, pmId) {
+function getPrivateMessage(pmId) {
     let url = `${_API_URL_BASE}/pm/${pmId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets an array of messages in a message box.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   boxId    A message box's ID.
  */
-function getPrivateMessageBox(callback, boxId) {
+function getPrivateMessageBox(boxId) {
     let url = `${_API_URL_BASE}/pmbox/${boxId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
 
 /**
  * Gets info about a group.
- * @param  {Function} callback Called when request is done. Gets passed 'error' and 'json' (parsed JSON object from server response).
  * @param  {Number}   groupId  A group's ID.
  */
-function getGroup(callback, groupId) {
+function getGroup(groupId) {
     let url = `${_API_URL_BASE}/group/${groupId}`;
-    makeRequest(callback, _REQUEST_OPTIONS.append({ url:url }, 1));
+    return makeRequest(_REQUEST_OPTIONS.append({ url:url }, 1));
 }
 
 
